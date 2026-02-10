@@ -2,7 +2,7 @@
 // @name         B站合集视频自动跳转上次观看分P（收藏夹/稍后再看/视频页通用）
 // @name:zh-CN   B站合集视频自动跳转上次观看分P（收藏夹/稍后再看/视频页通用）
 // @namespace    https://bilibili.com/
-// @version      1.3
+// @version      1.4
 // @description  打开视频时根据历史记录自动跳转到上次观看的分P
 // @description:zh-CN  打开视频时根据历史记录自动跳转到上次观看的分P
 // @author       ID-Paths
@@ -24,8 +24,23 @@
 
   const url = new URL(location.href);
 
+  // —— 1) 先隐藏页面，避免跳转前闪烁 ——
+  const style = document.createElement('style');
+  style.id = '__resume_hide';
+  style.textContent = 'html{visibility:hidden !important;}';
+  // document-start 时 documentElement 可能还没就绪，做个容错
+  (document.documentElement || document).appendChild(style);
+
+  function showPage() {
+    const s = document.getElementById('__resume_hide');
+    if (s) s.remove();
+  }
+
   // 防止无限重定向（用参数标记 + 只跳一次）
-  if (url.searchParams.get('__resume_redirected') === '1') return;
+  if (url.searchParams.get('__resume_redirected') === '1') {
+    showPage();
+    return;
+  }
 
   // 从不同页面提取 bvid
   function getBvid() {
@@ -41,7 +56,10 @@
   }
 
   const bvid = getBvid();
-  if (!bvid) return;
+  if (!bvid) {
+    showPage();
+    return;
+  }
 
   // 当前 p（没有就当 1）
   const currentP = parseInt(url.searchParams.get('p') || '1', 10) || 1;
@@ -87,18 +105,28 @@
   (async () => {
     try {
       const lastP = await fetchLastP(6);
-      if (!lastP) return;
 
-      // 已经是正确分P就不跳
-      if (lastP === currentP) return;
+      // 找不到进度：显示页面，正常打开当前页
+      if (!lastP) {
+        showPage();
+        return;
+      }
 
-      // 统一设置 p，然后跳转（并标记避免循环）
+      // 已经是正确分P：显示页面
+      if (lastP === currentP) {
+        showPage();
+        return;
+      }
+
+      // 需要跳转：不恢复显示，直接 replace（用户基本看不到闪）
       url.searchParams.set('p', String(lastP));
       url.searchParams.set('__resume_redirected', '1');
       location.replace(url.toString());
     } catch (e) {
-      // 静默失败
+      // 出错：恢复显示，避免白屏
+      showPage();
       console.log('[resume-p] error:', e);
     }
   })();
 })();
+
