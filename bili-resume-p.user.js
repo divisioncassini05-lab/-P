@@ -6,6 +6,7 @@
 // @description  打开视频时根据历史记录自动跳转到上次观看的分P
 // @description:zh-CN  打开视频时根据历史记录自动跳转到上次观看的分P
 // @author       ID-Paths
+// @icon         https://www.bilibili.com/favicon.ico
 // @homepageURL  https://github.com/divisioncassini05-lab/-P
 // @supportURL   https://github.com/divisioncassini05-lab/-P/issues
 // @license      MIT
