@@ -8,6 +8,7 @@
 // @match        https://www.bilibili.com/medialist/*
 // @run-at       document-start
 // @grant        none
+// @author       ID-Paths
 // ==/UserScript==
 
 (function () {
