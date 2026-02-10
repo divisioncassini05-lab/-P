@@ -1,14 +1,21 @@
 // ==UserScript==
-// @name         哔哩哔哩合集视频自动跳到上次观看分P（收藏夹/稍后再看/视频页通用）
+// @name         B站：自动跳到上次观看分P（收藏夹/稍后再看/视频页通用）
+// @name:zh-CN   B站：自动跳到上次观看分P（收藏夹/稍后再看/视频页通用）
 // @namespace    https://bilibili.com/
 // @version      1.2
-// @description  打开视频时根据历史记录自动跳到上次观看的分P
+// @description  打开视频时根据历史记录自动跳转到上次观看的分P（page）
+// @description:zh-CN  打开视频时根据历史记录自动跳转到上次观看的分P（page）
+// @author       ID-Paths
+// @homepageURL  https://github.com/divisioncassini05-lab/-P
+// @supportURL   https://github.com/divisioncassini05-lab/-P/issues
+// @license      MIT
 // @match        https://www.bilibili.com/video/*
 // @match        https://www.bilibili.com/list/watchlater*
 // @match        https://www.bilibili.com/medialist/*
 // @run-at       document-start
 // @grant        none
-// @author       ID-Paths
+// @downloadURL  https://raw.githubusercontent.com/divisioncassini05-lab/-P/main/bili-resume-p.user.js
+// @updateURL    https://raw.githubusercontent.com/divisioncassini05-lab/-P/main/bili-resume-p.user.js
 // ==/UserScript==
 
 (function () {
