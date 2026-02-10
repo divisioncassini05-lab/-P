@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         B站：自动跳到上次观看分P（收藏夹/稍后再看/视频页通用）
-// @name:zh-CN   B站：自动跳到上次观看分P（收藏夹/稍后再看/视频页通用）
+// @name         B站合集视频自动跳转上次观看分P（收藏夹/稍后再看/视频页通用）
+// @name:zh-CN   B站合集视频自动跳转上次观看分P（收藏夹/稍后再看/视频页通用）
 // @namespace    https://bilibili.com/
 // @version      1.2
-// @description  打开视频时根据历史记录自动跳转到上次观看的分P（page）
-// @description:zh-CN  打开视频时根据历史记录自动跳转到上次观看的分P（page）
+// @description  打开视频时根据历史记录自动跳转到上次观看的分P
+// @description:zh-CN  打开视频时根据历史记录自动跳转到上次观看的分P
 // @author       ID-Paths
 // @homepageURL  https://github.com/divisioncassini05-lab/-P
 // @supportURL   https://github.com/divisioncassini05-lab/-P/issues
