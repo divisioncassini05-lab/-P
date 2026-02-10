@@ -2,7 +2,7 @@
 // @name         B站合集视频自动跳转上次观看分P（收藏夹/稍后再看/视频页通用）
 // @name:zh-CN   B站合集视频自动跳转上次观看分P（收藏夹/稍后再看/视频页通用）
 // @namespace    https://bilibili.com/
-// @version      1.2
+// @version      1.3
 // @description  打开视频时根据历史记录自动跳转到上次观看的分P
 // @description:zh-CN  打开视频时根据历史记录自动跳转到上次观看的分P
 // @author       ID-Paths
